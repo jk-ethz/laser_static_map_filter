@@ -15,3 +15,15 @@ git clone https://github.com/jk-ethz/laser_static_map_filter
 vcs import --recursive --input laser_static_map_filter/laser_static_map_filter.repos
 catkin build
 ```
+
+## Usage
+
+```bash
+rosrun laser_static_map_filter laser_static_map_filter.py
+```
+
+An example launch file is provided as well
+
+```bash
+roslaunch laser_static_map_filter laser_static_map_filter.launch
+```
