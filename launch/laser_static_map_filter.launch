@@ -1,0 +1,5 @@
+<launch>
+    <node name="laser_static_map_filter" pkg="laser_static_map_filter" type="laser_static_map_filter.py" output="screen">
+        <remap from="/scan" to="/pcl"/>
+    </node>
+</launch>

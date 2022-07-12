@@ -1,0 +1,5 @@
+repositories:
+  occupancy_grid_python:
+    type: git
+    url: https://github.com/DarthBubi/occupancy_grid_python
+    version: 97c849048d6912d54bd88785887edb1e0534d75c
