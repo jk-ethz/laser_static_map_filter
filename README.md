@@ -10,6 +10,8 @@ If you only got a `sensor_msgs::LaserScan`, you can use the scans merger node of
 ## Installation
 
 ```bash
+cd catkin_ws/src
+git clone https://github.com/jk-ethz/laser_static_map_filter
 vcs import --recursive --input laser_static_map_filter/laser_static_map_filter.repos
 catkin build
 ```
