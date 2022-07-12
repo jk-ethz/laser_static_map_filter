@@ -5,6 +5,8 @@ This package is intended to be used for example in conjunction [obstacle_detecto
 
 If you only got a `sensor_msgs::LaserScan`, you can use the scans merger node of `obstacle_detector` to get a `sensor_msgs::PointCloud` msg.
 
+![](assets/example.png)
+
 ## Installation
 
 ```bash
