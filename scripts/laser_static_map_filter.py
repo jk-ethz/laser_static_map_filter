@@ -33,6 +33,7 @@ class LaserStaticMapFilter:
         scan.points = [scan.points[idx] for idx in point_idxs_to_keep]
         for channel in scan.channels:
             channel.values = [channel.values[idx] for idx in point_idxs_to_keep]
+            assert len(channel.values) == len(scan.points)
 
         self._filtered_pub.publish(scan)
 
