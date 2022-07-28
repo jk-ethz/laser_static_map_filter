@@ -24,12 +24,16 @@ class LaserStaticMapFilter:
         cost = self._ogm.get_cost_from_world_x_y(ogm_point.point.x, ogm_point.point.y)
         return cost >= 0 and cost < 100
 
-    def _scan_callback(self, scan):
+    def _scan_callback(self, scan: PointCloud):
         if self._ogm is None:
             rospy.logwarn_throttle(3.0, "Did not receive map yet, cannot process scan.")
             return
 
-        scan.points = [point for point in scan.points if self._filter(point, scan.header)]
+        point_idxs_to_keep = [idx for idx, point in enumerate(scan.points) if self._filter(point, scan.header)]
+        scan.points = [point for idx, point in enumerate(scan.points) if idx in point_idxs_to_keep]
+        for channel in scan.channels:
+            channel.values = [value for idx, value in enumerate(channel.values) if idx in point_idxs_to_keep]
+
         self._filtered_pub.publish(scan)
 
 
