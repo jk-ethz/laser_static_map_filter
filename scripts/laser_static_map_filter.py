@@ -30,9 +30,9 @@ class LaserStaticMapFilter:
             return
 
         point_idxs_to_keep = [idx for idx, point in enumerate(scan.points) if self._filter(point, scan.header)]
-        scan.points = [point for idx, point in enumerate(scan.points) if idx in point_idxs_to_keep]
+        scan.points = [scan.points[idx] for idx in point_idxs_to_keep]
         for channel in scan.channels:
-            channel.values = [value for idx, value in enumerate(channel.values) if idx in point_idxs_to_keep]
+            channel.values = [channel.values[idx] for idx in point_idxs_to_keep]
 
         self._filtered_pub.publish(scan)
 
