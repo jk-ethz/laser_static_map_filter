@@ -24,7 +24,7 @@ class LaserStaticMapFilter:
         cost = self._ogm.get_cost_from_world_x_y(ogm_point.point.x, ogm_point.point.y)
         return cost >= 0 and cost < 100
 
-    def _scan_callback(self, scan: PointCloud):
+    def _scan_callback(self, scan):
         if self._ogm is None:
             rospy.logwarn_throttle(3.0, "Did not receive map yet, cannot process scan.")
             return
